@@ -7,68 +7,180 @@
     <meta name="description" content="Foryandex : " />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+<script src="jquery-1.8.0.min.js"></script>
+  	<script>
+		$(window).ready(function() {
+			$('#accord > div:not(:first)').hide();
+			$('#accord h4:first, #accord div:first').addClass('active');
+			$('#accord > h4').click(function() {
+				$('#accord > h4').removeClass('active');
+				$('#accord > div').hide();
+				$(this).addClass('active');
+				$(this).next().addClass('active').slideDown();
+			});
+		});
+		</script>
     <title>Foryandex</title>
   </head>
 
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/kingpit/ForYandex">View on GitHub</a>
+  <div id='accord'>
+  
+		<h2>Общие вопросы</h2>
+		<h4 class='question'>Фамилия, имя, отчество</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Е-mail</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Телефон</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>	
+		<h4 class='question'>Год рождения</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Город, в котором живёте</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Вуз, факультет, специальность, кафедра</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>	
+		<h4 class='question'>Год окончания вуза</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>На каком уровне владеете английским языком?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Чего вы ожидаете от участия в школе?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>	
+		<h4 class='question'>Откуда вы о нас узнали?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Сколько времени вы были бы готовы уделять стажировке или работе в Яндексе?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>	
+		
+		<h2>Опыт разработки</h2>
+		<h4 class='question'>Расскажите нам о вашем опыте разработки. Ничего не упускайте: это может быть как серьезный интерфейс, так и просто домашняя страничка.</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Какие языки программирования, фреймворки и технологии вы использовали? Сложились ли у вас личные предпочтения?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Какие редакторы и среды разработки вы использовали? Чем обычно пользуетесь?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>	
+		<h4 class='question'>С какими ОС приходилось сталкиваться? Для каких целей вы их использовали?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Приходилось ли вам пользоваться системами контроля версий? Если да, то какими? Какая из них вам нравится больше всего?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Использовали ли вы системы постановки и ведения задач?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>		
+		<h4 class='question'>Какие полезные для фронтенд-разработчика ресурсы вы используете и можете посоветовать?</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>
+		<h4 class='question'>Работали ли вы где-нибудь? Какие у вас были должностные обязанности? Есть ли опыт работы в команде?s</h4>
+		<div class='answer'>Ответ в отправленной анкете</div>	
+		
+		<h2>Технические задания</h2>
+		<h4 class='question'>Предположим, что мы представляем автосалон по продаже японских и немецких автомобилей. У нас есть базовые классы и примеры их использования. Допишите недостающий код.</h4>
+		<div class='answer'>
+/**<br>
+ * Создает экземпляр Машины<br>
+ * @this {Car}<br>
+ * @param {string} manufacturer Производитель<br>
+ * @param {string} model Модель<br>
+ * @param {number} year Год производство<br>
+ */<br>
+function Car(manufacturer, model, year) {<br>
+	var today = new Date();<br>
+    this.manufacturer = manufacturer;<br>
+    this.model = model;<br>
+    this.year = year || today.getFullYear();<br>
+	this.price = '';<br>
+	this.getInfo = function() {<br>
+	return this.manufacturer+' '+this.model+' '+this.year;<br>
+	}<br>
+	this.getDetailedInfo = function() {<br>
+	return 'Производитель: '+this.manufacturer+'. Модель:'+this.model+'. Год:'+this.year;<br>
+	}<br>
+	this.getCountry = function() {<br>
+		switch (this.manufacturer.toLowerCase()) {<br>
+			case 'bmw':<br>
+			case 'audi':<br>
+				return 'Germany';<br>
 
-          <h1 id="project_title">Foryandex</h1>
-          <h2 id="project_tagline"></h2>
+			case 'toyota':<br>
+				return 'Japan';<br>
+		}<br>
+	}	<br>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/kingpit/ForYandex/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/kingpit/ForYandex/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+}<br>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+var bmw = new Car("BMW", "X5", 2010),<br>
+    audi = new Car("Audi", "Q5", 2012),<br>
+    toyota = new Car("Toyota", "Camry");<br>
+// @TODO: если конструктор вызывается без указания текущего года, то подставлять текущий<br>
+// @TODO: реализовать методы вывода информации о машине: <br>
+// console.log('Car: ' + bmw.getInfo()); // Car: BMW X5 2010<br>
+// console.log(bmw.getInfo()); // BMW X5 2010<br>
+// console.log(bmw.getDetailedInfo()); // Производитель: BMW. Модель: X5. Год: 2010<br>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+/**<br>
+ * Создает экземпляр Автосалона<br>
+ * @this {CarDealer}<br>
+ * @param {string} name Название автосалона<br>
+ */<br>
+function CarDealer(name) {<br>
+    this.name = name;<br>
+    this.cars = [];<br>
+	
+	this.add = function() {<br>
+		for (var i=0; i< arguments.length;i++) {<br>
+			this.cars.push(arguments[i]);<br>
+		};<br>
+	}<br>
+	
+	this.setPrice = function(id,price) {<br>
+		for (var i=0; i<this.cars.length;i++) {<br>
+			if (id.toLowerCase() == this.cars[i].getInfo().toLowerCase()) {this.cars[i].price = price;};<br>
+		};<br>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+	}<br>
+	
+	this.list = function() {<br>
+	    var str = ''; <br>
+		for (var i=0; i<this.cars.length; i++) {<br>
+		console.log(this.cars[i].getInfo());<br>
+		str += this.cars[i].getInfo() + ' ';<br>
+		};<br>
+		return str;<br>
+	}<br>
+	
+	this.listByCountry = function(country) {<br>
+		var str = '';<br>
+		for (var i=0; i<this.cars.length; i++) {<br>
+			if (this.cars[i].getCountry() == country) {console.log(this.cars[i].getInfo());<br>
+			str += this.cars[i].getInfo() + ' ';<br>
+			}<br>
+		}<br>
+		return str;<br>
+	}<br>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+}<br>
 
-<h3>Designer Templates</h3>
+var yandex = new CarDealer('Яндекс.Авто');<br>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+// @TODO: реализовать метод добавления машин в автосалон. Предусмотреть возможность добавления одной машины, нескольких машин.<br>
+yandex.add(toyota);<br>
+yandex.add(bmw, audi);<br>
 
-<h3>Rather Drive Stick?</h3>
+// @TODO: реализовать метод установки цены на машину<br>
+/**<br>
+ * Установить цену на машину<br>
+ * @param {string} car идентификатор машины<br>
+ * @param {string} price стоимость<br>
+ */<br>
+// идентификатор машины составляется следующим образом "производитель модель год"<br>
+// стоимость машины может быть задана в двух валютах: йена и евро.<br>
+yandex.setPrice('BMW X5 2010', '€2000');<br>
+yandex.setPrice('Audi Q5 2012', '€3000')<br>
+yandex.setPrice('Toyota Camry 2012', '?3000');<br>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+// @TODO: реализовать вывод списка автомобилей в продаже, с фильтрацией по стране производителю, используя метод getCountry:<br>
 
-<h3>Authors and Contributors</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+//yandex.list(); //BMW X5 2010, Audi Q5 2012, Toyota Camry 2012<br>
+//yandex.listByCountry('Germany'); //BMW X5 2010, Audi Q5 2012<br>
 
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Foryandex maintained by <a href="https://github.com/kingpit">kingpit</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+// @TODO: бонус! выводить список машин с ценой в рублях.</div>	
+	</div>
   </body>
 </html>
